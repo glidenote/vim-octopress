@@ -47,6 +47,8 @@ syn match octopressPullquote /\m{"\s[^{]\+\s"}/ contained oneline
 " Backtick block
 syn region octopressBacktickBlock matchgroup=octopressBacktickBlockDelimiter start=/\m^```\(\s*\|\s\+.*\)$/ end=/\m^```\s*$/
 
+syn match octopressEscape /\\[][\\`*_{}()#+.!-]/
+
 command -nargs=+ HiLink hi def link <args>
 
 HiLink  octopressYamlFrontMatter        PreProc
@@ -61,6 +63,8 @@ HiLink  octopressPullquote              PreProc
 
 HiLink  octopressBacktickBlockDelimiter PreProc
 HiLink  octopressBacktickBlock          Underlined
+
+HiLink  octopressEscape                 Special
 
 delcommand HiLink
 
